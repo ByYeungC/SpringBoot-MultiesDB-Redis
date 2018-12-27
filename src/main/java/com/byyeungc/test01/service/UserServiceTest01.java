@@ -13,7 +13,6 @@ import lombok.extern.slf4j.Slf4j;
 
 
 @Service
-@Slf4j
 public class UserServiceTest01 {
 	   @Autowired
 	    private UserMapperTest01 users;
@@ -22,11 +21,10 @@ public class UserServiceTest01 {
 	        return users.findAll();
 	    }
 	    
-	    @Transactional(transactionManager = "test1TransactionManager")
+	    @Transactional()
 	    public int insertUser(String name, int age) {
 	    	int insertUserResult = users.insert(name, age);
-	    	log.info("########insertUserResult:{}##");
-	    	int i = 1/age;//验证事务开启成功 测试方法在30行打断点，进行debug，一步一步走，到31行的时候，insertUserResult已经1，数据库并没有新增
+	    	int i = 1/age;//验证事务开启成功 测试方法在26行打断点，进行debug，一步一步走，到27行的时候，insertUserResult已经1，数据库并没有新增
 			return insertUserResult;
 	    }
 }
