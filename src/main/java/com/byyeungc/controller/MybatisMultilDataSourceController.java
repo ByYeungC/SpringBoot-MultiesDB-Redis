@@ -29,6 +29,7 @@ public class MybatisMultilDataSourceController {
 	
 	@RequestMapping("/insertUserTest1AndTest2")
 	public Integer insertUserTest1AndTest2(String name, Integer age) {
+		int i = 1/age;
 		return userServiceTest02.insertUserTest01And02(name, age);
 		
 	}
